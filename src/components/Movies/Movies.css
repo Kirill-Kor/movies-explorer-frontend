@@ -1,0 +1,43 @@
+.movies-page {
+    height: 100vh;   
+}
+
+.movies-page__content {
+    padding: 0 30px;
+}
+
+.movies-page-more-button {
+    display: flex;
+    justify-content: center;
+    margin: 80px auto;
+    padding: 11px 0 9px 0;
+    width: 320px;
+    border: 1px solid #424242;
+    background-color: inherit;
+    border-radius: 5px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
+    text-align: center;
+    color: #FFFFFF;
+    transition: .2s ease-in-out;
+}
+
+.movies-page-more-button:hover {
+    opacity: .8;
+    cursor: pointer;
+}
+
+
+@media screen and (max-width: 500px) {
+    .movies-page__content {
+        padding: 0 10px;
+    }
+
+    .movies-page-more-button {
+        width: 240px;
+    }
+    
+}

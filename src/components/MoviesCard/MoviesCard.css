@@ -1,0 +1,82 @@
+.card {
+    margin: 0;
+    padding: 0;
+    background: #222222;
+    box-shadow: 0px 16px 24px rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-areas:
+        "image image"
+        "name favourites"
+        "duration .";
+}
+
+.card__image {
+    grid-area: image;
+    display: block;
+    max-width: 100%;
+}
+
+.card__name {
+    grid-area: name;
+    margin: 14px 24px 10px 12px;
+    padding: 0;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 16px;
+    color: #FFFFFF;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.card__duration {
+    grid-area: duration;
+    margin: 0 0 14px 12px;
+    padding: 0;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 13px;
+    display: flex;
+    align-items: center;
+
+    color: #8B8B8B;
+}
+
+.card__favorites>input {
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+}
+
+.card__favorites {
+    grid-area: favourites;
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.card__favorites>span::before {
+    box-sizing: border-box;
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background-color: #313131;
+    border-radius: 8px;
+    border: 2px solid #FFF;
+    transition: .3s ease-in-out;
+    top: 14px;
+    right: -36px;
+}
+
+.card__favorites>input:checked+span::before {
+    background-color: #2BE080;
+}

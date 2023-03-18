@@ -1,0 +1,50 @@
+.skills {
+    max-width: max-content;
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 10px;
+
+}
+
+.skills__item {
+    margin: 0;
+    padding: 21px 0 22px 0;
+    width: 90px;
+    text-decoration: none;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+    letter-spacing: -0.04em;
+    color: #FFFFFF;
+    background-color: #303030;
+    border-radius: 10px;
+
+}
+
+@media screen and (max-width: 768px) {
+    .skills__item {
+        width: 84px;
+        font-size: 12px;
+        line-height: 15px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .skills {
+        max-width: 178px;
+    }
+
+
+    .skills__item {
+        width: 84px;
+        font-size: 12px;
+        line-height: 15px;
+    }
+}

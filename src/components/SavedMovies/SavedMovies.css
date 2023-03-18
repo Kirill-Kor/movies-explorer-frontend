@@ -1,0 +1,15 @@
+.saved-movies-page { 
+    height: 100vh;
+}
+
+.saved-movies-page__content {
+    padding: 0 30px
+}
+
+
+@media screen and (max-width: 500px) {
+    .saved-movies-page__content {
+        padding: 0 10px;
+    }
+    
+}

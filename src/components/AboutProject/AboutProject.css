@@ -1,0 +1,111 @@
+.about {
+    margin: 0 auto;
+    padding: 110px 50px 105px 50px;
+    max-width: 1140px;
+}
+
+.about__details {
+    margin: 0;
+    margin-top: 70px;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(min-content, 550px));
+    gap: 40px;
+
+}
+
+.about__subtitle {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: -0.04em;
+    color: #FFFFFF;
+}
+
+.about__text {
+    margin: 0;
+    margin-top: 26px;
+    padding: 0;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: #FFFFFF;
+}
+
+.about__timeline {
+    margin: 110px auto 0 auto;
+    padding: 0;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 1fr 4fr;
+    text-align: center;
+    row-gap: 14px;
+
+}
+
+.about__timeline-header {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 9px 0;
+    height: 36px;
+    background-color: #303030;
+    color: #FFF;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+}
+
+.about__timeline-header_style_green {
+    background-color: #3DDC84;
+    color: #000;
+
+}
+
+.about__timeline-row {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    color: #8B8B8B;
+
+}
+
+@media screen and (max-width: 500px) {
+    .about {
+        padding: 70px 18px;
+    }
+    .about__subtitle {
+        font-size: 18px;
+        line-height: 22px;
+    }
+
+    .about__text {
+        font-size: 11px;
+        line-height: 16px;
+        margin-top: 16px;
+    }
+
+    .about__details {
+        margin-top: 60px;
+        grid-template-columns: 100%;
+        gap: 56px;
+    }
+
+    .about__timeline {
+        margin: 60px auto 0 auto;
+        grid-template-columns: minmax(min-content, 100px) minmax(min-content, 184px);
+        row-gap: 10px;
+    }
+    
+}
