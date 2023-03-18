@@ -10,10 +10,12 @@ export default function Main() {
     return (
         <>
             <Header></Header>
-            <Promo></Promo>
-            <AboutProject></AboutProject>
-            <Techs></Techs>
-            <AboutMe></AboutMe>
+            <main>
+                <Promo></Promo>
+                <AboutProject></AboutProject>
+                <Techs></Techs>
+                <AboutMe></AboutMe>
+            </main>
             <Footer></Footer>
         </>
     )

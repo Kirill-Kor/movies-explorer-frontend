@@ -26,26 +26,16 @@
 
 }
 
-.portfolio__item-container {
-    margin: 0;
+.portfolio__item {
     padding: 0;
+    margin: 0;
+    text-decoration: none;
     padding-bottom: 19px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid #424242;
     transition: .2s ease-in-out;
-}
-
-.portfolio__item-container:hover {
-    opacity: .7;
-    cursor: pointer;
-}
-
-.portfolio__item {
-    padding: 0;
-    margin: 0;
-    text-decoration: none;
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
@@ -53,6 +43,11 @@
     line-height: 50px;
     letter-spacing: -0.04em;
     color: #FFFFFF;
+}
+
+.portfolio__item:hover {
+    opacity: .7;
+    cursor: pointer;
 }
 
 .portfolio__link-icon {

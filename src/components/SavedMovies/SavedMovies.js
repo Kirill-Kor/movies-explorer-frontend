@@ -8,10 +8,10 @@ export default function SavedMovies() {
     return (
         <div className="saved-movies-page">
             <Header isLogged={true}></Header>
-            <div className="saved-movies-page__content">
+            <main className="saved-movies-page__content">
                 <SearchForm></SearchForm>
                 <MoviesCardList></MoviesCardList>
-            </div>
+            </main>
             <Footer></Footer>
         </div>
     )

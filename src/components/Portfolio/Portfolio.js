@@ -5,17 +5,16 @@ export default function Portfolio() {
         <div className="portfolio">
             <p className="portfolio__title">Портфолио</p>
             <ul className="portfolio__list">
-                <li className="portfolio__item-container">
-                    <a href="https://kirill-kor.github.io/how-to-learn/" className="portfolio__item" target="_blank" rel="noreferrer">Статичный сайт</a>
-                    <div className="portfolio__link-icon"></div>
+                <li >
+                    <a href="https://kirill-kor.github.io/how-to-learn/" className="portfolio__item" target="_blank" rel="noreferrer">Статичный сайт<div className="portfolio__link-icon"></div></a>
                 </li>
-                <li className="portfolio__item-container">
-                    <a href="https://kirill-kor.github.io/russian-travel/" className="portfolio__item" target="_blank" rel="noreferrer">Адаптивный сайт</a>
-                    <div className="portfolio__link-icon"></div>
+                <li>
+                    <a href="https://kirill-kor.github.io/russian-travel/" className="portfolio__item" target="_blank" rel="noreferrer">Адаптивный сайт<div className="portfolio__link-icon"></div></a>
+
                 </li>
-                <li className="portfolio__item-container">
-                    <a href="http://kirkors.mesto.nomoredomains.work/" className="portfolio__item" target="_blank" rel="noreferrer">Одностраничное приложение</a>
-                    <div className="portfolio__link-icon"></div>
+                <li>
+                    <a href="http://kirkors.mesto.nomoredomains.work/" className="portfolio__item" target="_blank" rel="noreferrer">Одностраничное приложение<div className="portfolio__link-icon"></div></a>
+
                 </li>
 
             </ul>

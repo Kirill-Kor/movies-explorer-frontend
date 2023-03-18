@@ -5,8 +5,8 @@ export default function SearchForm() {
     return (
         <div className="search">
             <form className="search__form">
-                <input type="text" className="search__bar" placeholder="Фильм"></input>
-                <button type="button" className="search__button"></button>
+                <input type="text" className="search__bar" placeholder="Фильм" required></input>
+                <button type="submit" className="search__button"></button>
             </form>
             <FilterCheckbox></FilterCheckbox>
         </div>
