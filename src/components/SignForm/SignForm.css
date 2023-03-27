@@ -115,6 +115,32 @@
     transition: .2s ease-in-out;
 }
 
+.sign__error {
+    margin: 0;
+    padding: 0;
+    padding-bottom: 15px;
+    color: #d93025;
+    text-align: center;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+}
+
+.sign__success {
+    margin: 0;
+    padding: 0;
+    padding-bottom: 15px;
+    color: #2BE080;
+    text-align: center;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+}
+
 .sign__link:hover {
     opacity: .8;
 }

@@ -6,10 +6,10 @@ import AboutMe from "../AboutMe/AboutMe";
 import Footer from "../Footer/Footer";
 
 
-export default function Main() {
+export default function Main({isLogged}) {
     return (
         <>
-            <Header></Header>
+            <Header isLogged={isLogged}></Header>
             <main>
                 <Promo></Promo>
                 <AboutProject></AboutProject>

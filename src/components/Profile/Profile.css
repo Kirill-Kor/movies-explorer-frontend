@@ -83,6 +83,16 @@
     cursor: pointer;
 }
 
+.profile__button_disabled {
+    opacity: .8;
+
+}
+
+.profile__button_disabled:hover {
+    cursor: default;
+
+}
+
 .profile__edit-button {
     font-weight: 400;
     color: #FFF;
