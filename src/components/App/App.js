@@ -55,7 +55,7 @@ function App() {
 
   function Protected(props) {
 
-    if (!props.isLogged) return <Navigate to="/signin" replace />
+    if (!props.isLogged) return <Navigate to="/" replace />
 
     return props.children;
   }
