@@ -27,6 +27,7 @@ export default function SavedMovies() {
 
     function handleSubmit(keyword) {
         setMovies(moviesFilter(JSON.parse(localStorage.getItem('savedMovies')), keyword));
+        setIsLoading(false);
     }
 
     function handleCheck() {
