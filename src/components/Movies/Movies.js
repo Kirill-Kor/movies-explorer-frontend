@@ -20,10 +20,8 @@ export default function Movies() {
         if (localStorage.getItem('movies')) {
             setMovies(moviesFilter(JSON.parse(localStorage.getItem('movies')), JSON.parse(localStorage.getItem('keyword'))));
         }
-        mainApi.getMyMovies()
-                .then((myMovies) => {
-                    setMyMovies(myMovies);
-                })
+        
+        updateMyMovies();
 
         setCardsToRender((v) => (window.innerWidth >= 1200 && 16)
             || (window.innerWidth >= 910 && 12)
@@ -70,6 +68,32 @@ export default function Movies() {
         setIsLoading(true);
     }
 
+    function handleAddToFavorites(card) {
+        return mainApi.addToFavorite(card)
+        .then(() => {
+            updateMyMovies();
+        })
+        .catch((err) => console.log(err));
+    }
+
+    function handleDeleteFromFavorites(card) {
+        const cardToDelete = myMovies.find(myCard => myCard.movieId === card.id);
+    
+        return mainApi.removeFromFavorite(cardToDelete._id)
+            .then(() => {
+                updateMyMovies();
+            })
+            .catch((error) => console.log(error))
+    }
+
+    function updateMyMovies() {
+        mainApi.getMyMovies()
+        .then((myMovies) => {
+            setMyMovies(myMovies);
+        })
+        .catch((error) => console.log(error));
+    }
+
     return (
         <div className="movies-page">
             <Header isLogged={true}></Header>
@@ -83,7 +107,14 @@ export default function Movies() {
                 {isLoading
                     ? <Preloader />
                     : <>
-                        <MoviesCardList movies={movies} moviesCount={cardsToRender + additionalCards} favorites={myMovies}></MoviesCardList>
+                        <MoviesCardList 
+                        movies={movies} 
+                        moviesCount={cardsToRender + additionalCards} 
+                        favorites={myMovies}
+                        onAdd={handleAddToFavorites}
+                        onDelete={handleDeleteFromFavorites}>
+
+                        </MoviesCardList>
                         {movies.length > (cardsToRender + additionalCards) && <button type="button" className="movies-page-more-button" onClick={addCardsRow}>Ещё</button>}
                     </>
                 }

@@ -34,6 +34,15 @@ export default function SavedMovies() {
         setMovies(moviesFilter(JSON.parse(localStorage.getItem('savedMovies')), JSON.parse(localStorage.getItem('savedKeyword'))));
     }
 
+    function handleDeleteCard(card) {
+
+        mainApi.removeFromFavorite(card._id)
+            .then((result) => {
+                setMovies((movies) => movies = movies.filter(card => card._id !== result._id));
+            })
+            .catch((err) => console.log(err));
+    }
+
 
     return (
         <div className="saved-movies-page">
@@ -47,7 +56,11 @@ export default function SavedMovies() {
                 ></SearchForm>
                 {isLoading
                     ? <Preloader />
-                    : <MoviesCardList movies={movies} isSaved={true}></MoviesCardList>
+                    : <MoviesCardList
+                        movies={movies}
+                        isSaved={true}
+                        isSavedMoviesPage={true}
+                        onDelete={handleDeleteCard}></MoviesCardList>
                 }
 
             </main>

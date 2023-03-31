@@ -4,43 +4,51 @@ import "./MoviesCard.css";
 
 export default function MoviesCard(props) {
     const [isChecked, setIsChecked] = useState(false);
-    
+
     useEffect(() => {
         setIsChecked(() => props.isSaved);
     }, [props.isSaved])
 
     function handleChange(e) {
         if (e.target.checked) {
-            mainApi.addToFavorite(props.card)
-                .then((result) => {
-                    console.log(result);
+            props.onAdd(props.card)
+                .then(() => {
                     setIsChecked(true);
                 })
-                .catch((err) => console.log(err));
+                .catch((error) => {
+                    console.log(error);
+                })
         }
         else {
-            const cardId = props.card._id ? props.card._id : props.favorites.find((movie) => movie.movieId === props.card.id)._id;
-            mainApi.removeFromFavorite(cardId)
-                .then((result) => {
-                    console.log(result);
-                    setIsChecked(false);
+            props.onDelete(props.card)
+                .then(() => {
+                    setIsChecked(false)
                 })
-                .catch((err) => console.log(err));
+                .catch((error) => {
+                    console.log(error);
+                })
         }
-
     }
+
+    function handleDeleteButton(e) {
+        e.preventDefault();
+        props.onDelete(props.card);
+    }
+
 
     return (
         <li className="card-item">
             <a href={props.trailer} className="card" target="_blank" rel="noreferrer">
-            <img className="card__image" src={props.link} alt={props.name} />
-            <p className="card__name">{props.name}</p>
-            <p className="card__duration">{Math.floor(props.duration / 60)}:{String(props.duration % 60).length === 1 ? `0${props.duration % 60}` : props.duration % 60}</p>
+                <img className="card__image" src={props.link} alt={props.name} />
+                <p className="card__name">{props.name}</p>
+                <p className="card__duration">{Math.floor(props.duration / 60)}:{String(props.duration % 60).length === 1 ? `0${props.duration % 60}` : props.duration % 60}</p>
 
-            <label className="card__favorites">
-                <input type="checkbox" onChange={(e) => handleChange(e)} checked={isChecked}></input>
-                <span></span>
-            </label>
+                {!props.isSavedMoviesPage
+                    ? <label className="card__favorites">
+                        <input type="checkbox" onChange={(e) => handleChange(e)} checked={isChecked}></input>
+                        <span></span>
+                    </label>
+                    : <button type="button" className="card__delete" onClick={(e) => handleDeleteButton(e)}></button>}
             </a>
         </li>
     )

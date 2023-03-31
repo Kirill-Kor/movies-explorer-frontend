@@ -20,6 +20,9 @@ export default function MoviesCardList(props) {
                         card={card}        
                         link={props.isSaved ? card.image : `https://api.nomoreparties.co/${card.image.url}`} 
                         favorites={props.favorites}
+                        onAdd={props.onAdd}
+                        onDelete={props.onDelete}
+                        isSavedMoviesPage={props.isSavedMoviesPage}
                         isSaved={props.isSaved ? props.isSaved
                                 : favoritesIds.includes(card.id)}></MoviesCard>)}
                 </ul>
