@@ -7,7 +7,7 @@ export default function SearchForm(props) {
 
     useEffect(() => {
 
-        if (props.page === 'movies') {
+        if (props.page === 'movies' && localStorage.getItem('keyword')) {
             setKeyword(JSON.parse(localStorage.getItem('keyword')));
         }
         else {
