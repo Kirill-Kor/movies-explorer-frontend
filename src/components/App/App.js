@@ -30,7 +30,7 @@ function App() {
       .then((response) => {
         setCurrentUser(response);
         setIsLoggedIn(true);
-        navigate('/movies');
+        navigate('/');
       })
       .catch((err) => console.log(err));
   }
