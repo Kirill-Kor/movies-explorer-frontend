@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import login from "../../utils/login";
 import mainApi from "../../utils/MainApi";
 import SignForm from "../SignForm/SignForm";
 import "./Register.css";
 
-export default function Register() {
+
+export default function Register(props) {
     const [userName, setUserName] = useState('');
     const [userEmail, setUserEmail] = useState('');
     const [userPassword, setUserPassword] = useState('');
@@ -18,7 +20,17 @@ export default function Register() {
             .then((res) => {
                 setSuccess('Вы успешно зарегистрировались!');
                 setTimeout(() => {
-                    navigate('/signin');
+                    console.log(userEmail, userPassword);
+                    login(userEmail, userPassword)
+                    .then(() => {
+                        props.onLogin();
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                    })
+
+
+                    
                 }, 3000);
             })
             .catch((err) => {

@@ -83,7 +83,7 @@ function App() {
 
         </Route>
         <Route path="/signin" element={<Login onLogin={handleLogin} />}></Route>
-        <Route path="/signup" element={<Register />}></Route>
+        <Route path="/signup" element={<Register onLogin={handleLogin} />}></Route>
         {/* <NotFound></NotFound> */}
       </Routes>
 

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import login from "../../utils/login";
 import mainApi from "../../utils/MainApi";
 import SignForm from "../SignForm/SignForm";
 import "./Login.css";
@@ -9,15 +10,16 @@ export default function Login(props) {
     const [error, setError] = useState('');
 
     function handleSubmit() {
-        mainApi.login({userEmail, userPassword})
-        .then((response) => {
-            localStorage.setItem('jwt', response.token);
-            props.onLogin();
-        })
-        .catch((error) => {
-            setError(error);
-        })
+        login(userEmail, userPassword)
+            .then((res) => {
+                props.onLogin();
+            })
+            .catch((error) => {
+                setError(error);
+            })
     }
+
+    
 
     return (
         <SignForm
