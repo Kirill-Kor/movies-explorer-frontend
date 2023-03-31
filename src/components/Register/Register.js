@@ -43,7 +43,7 @@ export default function Register() {
                 <input type="text" className="sign__field" placeholder="Введите e-mail" onChange={(e) => setUserEmail(e.target.value)}></input>
             </label>
             <label className="sign__textbox">Пароль
-                <input type="text" className="sign__field" placeholder="Введите пароль" onChange={(e) => setUserPassword(e.target.value)}></input>
+                <input type="password" className="sign__field" placeholder="Введите пароль" onChange={(e) => setUserPassword(e.target.value)}></input>
             </label>
 
         </SignForm>
