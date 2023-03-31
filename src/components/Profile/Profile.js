@@ -9,13 +9,8 @@ export default function Profile(props) {
     const [name, setName] = useState(user.name);
     const [email, setEmail] = useState(user.email);
     const [buttonDisabled, setButtonDisabled] = useState(true);
-    
+    const [success, setSuccess] = useState(false);
 
-    function handleEdit() {
-        if (name !== user.name || email !== user.email) {
-            props.onEdit(name, email);
-        }
-    }
 
     useEffect(() => {
         if (name !== user.name && name) setButtonDisabled(false)
@@ -29,6 +24,21 @@ export default function Profile(props) {
 
     }, [email])
 
+    function handleEdit() {
+        if (name !== user.name || email !== user.email) {
+            props.onEdit(name, email)
+            .then((res) => {
+                setSuccess(true);
+
+            })
+            .catch((error) => {
+                console.log(error);
+            })
+
+            
+        }
+    }
+
     return (
         <div className="profile">
             <Header isLogged={true}></Header>
@@ -41,7 +51,9 @@ export default function Profile(props) {
                     <label className="profile__label">E-mail
                         <input type="text" className="profile__field" value={email} onChange={(e) => setEmail(e.target.value)}></input>
                     </label>
+                    
                 </form>
+                <span className={`profile__success ${success ? 'profile__success_visible' : ''}`}>Сохранено!</span>
                 <button type="button" className={`profile__button profile__edit-button ${buttonDisabled && 'profile__button_disabled'}`} onClick={handleEdit} disabled={buttonDisabled}>Редактировать</button>
                 <button type="button" className="profile__button profile__exit-button" onClick={props.onLogout}>Выйти из аккаунта</button>
             </div>

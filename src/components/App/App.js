@@ -46,9 +46,9 @@ function App() {
   }
 
   function handleUpdateUser(name, email) {
-    mainApi.patchUserInfo(name, email)
+    return mainApi.patchUserInfo(name, email)
             .then((user) => {
-                setCurrentUser(user);
+              setTimeout(() => setCurrentUser(user), 2000);
             })
             .catch((err) => console.log(err));
   }
