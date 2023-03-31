@@ -3,7 +3,7 @@ export function moviesFilter(unfilteredMovies, keyword) {
     
     if (!unfilteredMovies && !keyword) return;
     
-    if (unfilteredMovies && !keyword) return JSON.parse(localStorage.getItem('checked')) ? unfilteredMovies : unfilteredMovies.filter(movie => movie.duration >= 40);
+    if (unfilteredMovies && !keyword) return document.querySelector('.checkbox').firstChild.checked ? unfilteredMovies : unfilteredMovies.filter(movie => movie.duration >= 40);
     
 
     let filteredMovies = unfilteredMovies.filter((movie) => {

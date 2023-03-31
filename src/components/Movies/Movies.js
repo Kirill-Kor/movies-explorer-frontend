@@ -58,8 +58,10 @@ export default function Movies() {
         }
     }
 
-    function handleCheck() {
+    function handleCheck(checked) {
         if (!localStorage.getItem('movies') && !localStorage.getItem('keyword')) return;
+        localStorage.setItem('checked', JSON.stringify(checked));
+        
         setMovies(moviesFilter(JSON.parse(localStorage.getItem('movies')), JSON.parse(localStorage.getItem('keyword'))));
 
     }

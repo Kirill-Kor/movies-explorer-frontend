@@ -26,8 +26,8 @@ export default function SearchForm(props) {
 
     }
 
-    function handleCheck() {
-        props.onCheck();
+    function handleCheck(checked) {
+        props.onCheck(checked);
     }
 
     return (
@@ -36,7 +36,7 @@ export default function SearchForm(props) {
                 <input type="text" className="search__bar" placeholder="Фильм" onChange={(e) => setKeyword(e.target.value)} value={keyword} required></input>
                 <button type="submit" className="search__button"></button>
             </form>
-            <FilterCheckbox search={search} onCheck={handleCheck}></FilterCheckbox>
+            <FilterCheckbox search={search} onCheck={handleCheck} page={props.page}></FilterCheckbox>
         </div>
     )
 }

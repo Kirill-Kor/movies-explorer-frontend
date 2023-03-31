@@ -2,22 +2,17 @@ import { useEffect, useState } from "react";
 import "./FilterCheckbox.css";
 
 export default function FilterCheckbox(props) {
-    const [checked, setChecked] = useState(JSON.parse(localStorage.getItem('checked')))
+    const [checked, setChecked] = useState(props.page ==='movies' ? JSON.parse(localStorage.getItem('checked')) : true);
+
+    useEffect(() => {
+        props.onCheck(checked);
+
+    }, [checked]);
 
     function handleChange() {
         setChecked(!checked);
-        
-        
+
     }
-
-    useEffect(() => {
-        if (localStorage.getItem('movies') || localStorage.getItem('savedMovies')) {
-            localStorage.setItem('checked', JSON.stringify(checked));
-            props.onCheck();
-        }
-        
-
-    }, [checked]);
 
     return (
         <label className="checkbox">
