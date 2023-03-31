@@ -36,6 +36,8 @@
     margin: 0;
     margin-top: 184px;
     padding: 0;
+    border: 0;
+    background-color: inherit;
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
@@ -43,4 +45,10 @@
     line-height: 17px;
     text-align: center;
     color: #4285F4;
+    transition: all .2s ease-in-out;
+}
+
+.notfound__back:hover {
+    cursor: pointer;
+    opacity: .7;
 }

@@ -6,11 +6,16 @@ import "./Profile.css";
 
 export default function Profile(props) {
     const user = useContext(CurrentUserContext);
-    const [name, setName] = useState(user.name);
-    const [email, setEmail] = useState(user.email);
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
     const [buttonDisabled, setButtonDisabled] = useState(true);
     const [success, setSuccess] = useState(false);
 
+    useEffect(() => {
+        setName(user.name);
+        setEmail(user.email);
+
+    }, [user])
 
     useEffect(() => {
         if (name !== user.name && name) setButtonDisabled(false)

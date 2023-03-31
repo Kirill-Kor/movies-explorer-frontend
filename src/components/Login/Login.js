@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import login from "../../utils/login";
 import mainApi from "../../utils/MainApi";
 import SignForm from "../SignForm/SignForm";
@@ -8,18 +9,18 @@ export default function Login(props) {
     const [userPassword, setUserPassword] = useState('');
     const [userEmail, setUserEmail] = useState('');
     const [error, setError] = useState('');
+    const navigate = useNavigate();
 
     function handleSubmit() {
         login(userEmail, userPassword)
             .then((res) => {
+                navigate('/');
                 props.onLogin();
             })
             .catch((error) => {
                 setError(error);
             })
     }
-
-    
 
     return (
         <SignForm

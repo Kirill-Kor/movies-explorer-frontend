@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Route, Routes, useNavigate } from 'react-router-dom';
+import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import mainApi from '../../utils/MainApi';
 import Login from '../Login/Login';
@@ -24,7 +24,6 @@ function App() {
       .then((response) => {
         setCurrentUser(response);
         setIsLoggedIn(true);
-        navigate('/');
       })
       .catch((err) => console.log(err));
   }

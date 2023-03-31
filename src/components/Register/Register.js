@@ -24,6 +24,7 @@ export default function Register(props) {
                     login(userEmail, userPassword)
                     .then(() => {
                         props.onLogin();
+                        navigate('/');
                     })
                     .catch((error) => {
                         console.log(error);
