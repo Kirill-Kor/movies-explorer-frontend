@@ -18,12 +18,12 @@ export default function Movies() {
 
     useEffect(() => {
         if (localStorage.getItem('movies')) {
-            mainApi.getMyMovies()
+            setMovies(moviesFilter(JSON.parse(localStorage.getItem('movies')), JSON.parse(localStorage.getItem('keyword'))));
+        }
+        mainApi.getMyMovies()
                 .then((myMovies) => {
                     setMyMovies(myMovies);
-                    setMovies(moviesFilter(JSON.parse(localStorage.getItem('movies')), JSON.parse(localStorage.getItem('keyword'))));
                 })
-        }
 
         setCardsToRender((v) => (window.innerWidth >= 1200 && 16)
             || (window.innerWidth >= 910 && 12)

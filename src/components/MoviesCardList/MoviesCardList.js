@@ -5,6 +5,7 @@ import "./MoviesCardList.css";
 export default function MoviesCardList(props) {
     const favoritesIds = props.favorites ? props.favorites.map(movie => movie.movieId) : [];
     
+    
 
     return (
         <section>
