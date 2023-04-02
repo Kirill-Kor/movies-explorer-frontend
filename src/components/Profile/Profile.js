@@ -1,6 +1,5 @@
 import { useContext, useEffect, useState } from "react";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
-import mainApi from "../../utils/MainApi";
 import Header from "../Header/Header";
 import "./Profile.css";
 
@@ -10,6 +9,7 @@ export default function Profile(props) {
     const [email, setEmail] = useState('');
     const [buttonDisabled, setButtonDisabled] = useState(true);
     const [success, setSuccess] = useState(false);
+    const [error, setError] = useState('');
 
     useEffect(() => {
         setName(user.name);
@@ -34,13 +34,12 @@ export default function Profile(props) {
             props.onEdit(name, email)
             .then((res) => {
                 setSuccess(true);
+                setError('');
 
             })
             .catch((error) => {
-                console.log(error);
+                setError(error);
             })
-
-            
         }
     }
 
@@ -58,7 +57,10 @@ export default function Profile(props) {
                     </label>
                     
                 </form>
-                <span className={`profile__success ${success ? 'profile__success_visible' : ''}`}>Сохранено!</span>
+                <span className={`profile__result ${success ? 'profile__result_visible' : ''} ${error ? 'profile__result_visible profile__result_error' : ''} `}>
+                    {success && 'Сохранено!'}
+                    {error && 'Ошибка при обновлении данных.'}
+                    </span>
                 <button type="button" className={`profile__button profile__edit-button ${buttonDisabled && 'profile__button_disabled'}`} onClick={handleEdit} disabled={buttonDisabled}>Редактировать</button>
                 <button type="button" className="profile__button profile__exit-button" onClick={props.onLogout}>Выйти из аккаунта</button>
             </div>

@@ -66,7 +66,7 @@
     outline: 0;
 }
 
-.profile__success {
+.profile__result {
     margin: 0;
     padding: 0;
     opacity: 0;
@@ -81,7 +81,24 @@
     transition: all .3s ease;
 }
 
-.profile__success_visible {
+.profile__result_error {
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+    padding-bottom: 15px;
+    color: #d93025;
+    text-align: center;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    transition: all .3s ease;
+}
+
+
+
+.profile__result_visible {
     opacity: 1;
 }
 

@@ -44,7 +44,7 @@ function App() {
       .then((user) => {
         setTimeout(() => setCurrentUser(user), 2000);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => Promise.reject(err));
   }
 
   useEffect(() => {
