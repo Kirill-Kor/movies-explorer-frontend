@@ -27,7 +27,7 @@ function App() {
       })
       .catch((err) => Promise.reject(err));
   }
-  
+
 
   function handleLogout() {
     localStorage.removeItem('jwt');
@@ -78,14 +78,22 @@ function App() {
         }>
 
         </Route>
-        <Route path="/signin" element={<Login onLogin={handleLogin} />} />
-        <Route path="/signup" element={<Register onLogin={handleLogin} />} />
+        <Route path="/signin" element={
+          <Protected >
+            <Login onLogin={handleLogin} />
+          </Protected>
+        } />
+        <Route path="/signup" element={
+          <Protected >
+            <Register onLogin={handleLogin} />
+          </Protected>
+        } />
         <Route path="*" element={<NotFound />} />
 
       </Routes>
 
     </div>
-    
+
   );
 }
 
