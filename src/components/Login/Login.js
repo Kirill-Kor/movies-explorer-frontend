@@ -17,7 +17,7 @@ export default function Login(props) {
 
                 props.onLogin()
                     .then(() => {
-                        navigate('/');
+                        navigate('/movies');
                     })
                     .catch((error) => {
                         setError(error);
