@@ -14,8 +14,14 @@ export default function Login(props) {
     function handleSubmit() {
         login(userEmail, userPassword)
             .then((res) => {
-                navigate('/');
-                props.onLogin();
+
+                props.onLogin()
+                    .then(() => {
+                        navigate('/');
+                    })
+                    .catch((error) => {
+                        setError(error);
+                    })
             })
             .catch((error) => {
                 setError(error);
@@ -24,13 +30,13 @@ export default function Login(props) {
 
     return (
         <SignForm
-        title="Рады видеть!"
-        buttonText="Войти"
-        tooltip="Ещё не зарегистрированы?"
-        linkText="Регистрация"
-        isLoginPage={true}
-        onSubmit={ handleSubmit }
-        error={error}>
+            title="Рады видеть!"
+            buttonText="Войти"
+            tooltip="Ещё не зарегистрированы?"
+            linkText="Регистрация"
+            isLoginPage={true}
+            onSubmit={handleSubmit}
+            error={error}>
             <label className="sign__textbox">E-mail
                 <input type="text" className="sign__field" placeholder="Введите e-mail" onChange={(e) => setUserEmail(e.target.value)}></input>
             </label>

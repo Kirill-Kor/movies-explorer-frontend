@@ -20,12 +20,12 @@ function App() {
 
 
   function handleLogin() {
-    mainApi.checkTokenValidity()
+    return mainApi.checkTokenValidity()
       .then((response) => {
         setCurrentUser(response);
         setIsLoggedIn(true);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => Promise.reject(err));
   }
   
 
