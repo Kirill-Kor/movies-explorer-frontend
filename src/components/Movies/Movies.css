@@ -1,9 +1,12 @@
 .movies-page {
-    height: 100vh;   
+    height: 100vh;  
+    display: flex;
+    flex-direction: column; 
 }
 
 .movies-page__content {
     padding: 0 30px;
+    flex: 1 1 auto;
 }
 
 .movies-page-more-button {

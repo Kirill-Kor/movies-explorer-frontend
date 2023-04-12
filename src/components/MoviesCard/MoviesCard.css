@@ -1,22 +1,30 @@
 .card {
     margin: 0;
     padding: 0;
-    list-style: none;
+    text-decoration: none;
     background: #222222;
     box-shadow: 0px 16px 24px rgba(0, 0, 0, 0.05);
     border-radius: 10px;
     display: grid;
+    align-items: center;
     grid-template-columns: 2fr 1fr;
     grid-template-areas:
         "image image"
-        "name favourites"
+        "name favorites"
         "duration .";
+}
+
+.card-item {
+    
+    list-style: none;
 }
 
 .card__image {
     grid-area: image;
     display: block;
-    max-width: 100%;
+    border-radius: 10px 10px 0 0;
+    width: 100%;
+    height: 190px;
 }
 
 .card__name {
@@ -56,12 +64,16 @@
 }
 
 .card__favorites {
-    grid-area: favourites;
+    grid-area: favorites;
     position: relative;
     display: flex;
     align-items: center;
     margin: 0 auto;
     padding: 0;
+}
+
+.card__favorites:hover {
+    cursor: pointer;
 }
 
 .card__favorites>span::before {
@@ -74,10 +86,37 @@
     border-radius: 8px;
     border: 2px solid #FFF;
     transition: .3s ease-in-out;
-    top: 14px;
-    right: -36px;
+    top: -6px;
+    right: -34px;
 }
 
 .card__favorites>input:checked+span::before {
     background-color: #2BE080;
+}
+
+.card__delete {
+    grid-area: favorites;
+    width: 8px;
+    height: 8px;
+    margin: 0 auto;
+    margin-right: 15px;
+    background-color: inherit;
+    border: 0;
+    background-image: url('../../images/delete-icon.svg');
+    background-repeat: no-repeat;
+    background-position: center right;
+    transition: all .2s ease-in-out;
+}
+
+.card__delete:hover {
+    cursor: pointer;
+    opacity: .7;
+}
+
+
+@media screen and (max-width: 500px) {
+    .card__image {
+        height: 168px;
+    }
+    
 }

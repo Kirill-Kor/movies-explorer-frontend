@@ -1,9 +1,12 @@
 .saved-movies-page { 
     height: 100vh;
+    display: flex;
+    flex-direction: column; 
 }
 
 .saved-movies-page__content {
-    padding: 0 30px
+    padding: 0 30px;
+    flex: 1 1 auto;
 }
 
 

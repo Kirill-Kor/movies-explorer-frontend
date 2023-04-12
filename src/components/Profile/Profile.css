@@ -23,7 +23,7 @@
 }
 
 .profile__form {
-    margin: 108px 0 202px 0;
+    margin: 108px 0 185px 0;
     padding: 0;
     display: flex;
     flex-direction: column;
@@ -66,6 +66,42 @@
     outline: 0;
 }
 
+.profile__result {
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+    padding-bottom: 15px;
+    color: #2BE080;
+    text-align: center;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    transition: all .3s ease;
+}
+
+.profile__result_error {
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+    padding-bottom: 15px;
+    color: #d93025;
+    text-align: center;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    transition: all .3s ease;
+}
+
+
+
+.profile__result_visible {
+    opacity: 1;
+}
+
 .profile__button {
     margin: 0;
     padding: 0;
@@ -81,6 +117,16 @@
 .profile__button:hover {
     opacity: .8;
     cursor: pointer;
+}
+
+.profile__button_disabled {
+    opacity: .8;
+
+}
+
+.profile__button_disabled:hover {
+    cursor: default;
+
 }
 
 .profile__edit-button {

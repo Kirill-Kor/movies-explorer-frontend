@@ -2,6 +2,7 @@
     
     max-width: 1140px;
     margin: 0 auto;
+    padding: 0;
     margin-top: 70px;
     display: grid;
     grid-template-columns: repeat(auto-fill, 270px);
@@ -12,6 +13,7 @@
 @media screen and (max-width: 768px) {
     .movies-list {
         grid-template-columns: repeat(auto-fill, 339px);
+        
     }
     
 }
