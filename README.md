@@ -1,5 +1,6 @@
 # Movies explorer frontend
 Дипломный проект Я.практикум, представляющий из себя сервис по поиску фильмов.
+**npm start** - запуск на локальном сервере
 
 <a href="http://kirkor.movies-exp.nomoredomains.work/movies"><img src="./src/images/image.png" alt="Демо сайта"/></a>
 
